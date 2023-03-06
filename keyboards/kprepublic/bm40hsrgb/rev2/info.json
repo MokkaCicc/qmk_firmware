@@ -1,7 +1,19 @@
 {
     "keyboard_name": "bm40v2",
-    "url": "",
+    "manufacturer": "KP Republic",
+    "url": "https://kprepublic.com/products/bm40-rgb-40-hot-swap-custom-mechanical-keyboard-pcb-qmk-underglow-type-c-planck",
     "maintainer": "bdtc123",
+    "usb": {
+        "vid": "0x4B50",
+        "pid": "0x1141",
+        "device_version": "2.0.0"
+    },
+    "debounce": 5,
+    "diode_direction": "ROW2COL",
+    "matrix_pins": {
+        "rows": ["D7", "F7", "F6", "F5"],
+        "cols": ["B2", "B3", "D5", "D3", "D2", "B7", "F0", "B4", "B5", "B6", "C6", "C7"]
+    },
     "layouts": {
         "LAYOUT_planck_mit": {
             "layout": [
