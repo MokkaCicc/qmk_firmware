@@ -15,15 +15,13 @@
  */
 #pragma once
 
-#include "config_common.h"
-
 //rgb light setting
-#define RGBLIGHT_LIMIT_VAL 150
-#define RGBLED_NUM         6
-#define RGB_DI_PIN         B0
-#define RGBLIGHT_HUE_STEP  8
-#define RGBLIGHT_SAT_STEP  8
-#define RGBLIGHT_VAL_STEP  8
+#define RGBLIGHT_LIMIT_VAL   150
+#define RGBLED_NUM           6
+#define RGB_DI_PIN           B0
+#define RGBLIGHT_HUE_STEP    8
+#define RGBLIGHT_SAT_STEP    8
+#define RGBLIGHT_VAL_STEP    8
 /*== or choose animations ==*/
 #define RGBLIGHT_EFFECT_BREATHING
 #define RGBLIGHT_EFFECT_RAINBOW_MOOD
@@ -101,8 +99,7 @@
 
 #define DRIVER_ADDR_1 0b1010000
 #define DRIVER_COUNT 2
-#define DRIVER_1_LED_TOTAL 47
-#define DRIVER_LED_TOTAL DRIVER_1_LED_TOTAL
+#define RGB_MATRIX_LED_COUNT 47
 
 #if defined(RGB_MATRIX_ENABLE) && defined(RGBLIGHT_ENABLE)
     #define RGB_MATRIX_DISABLE_KEYCODES
