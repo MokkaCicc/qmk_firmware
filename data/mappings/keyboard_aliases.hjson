@@ -71,8 +71,11 @@
     "bm16s": {
         "target": "kprepublic/bm16s"
     },
-    "bm40hsrgb": {
-        "target": "kprepublic/bm40hsrgb"
+    "bm40hsrgb/rev1": {
+        "target": "kprepublic/bm40hsrgb/rev1"
+    },
+    "bm40hsrgb/rev2": {
+        "target": "kprepublic/bm40hsrgb/rev2"
     },
     "bm43a": {
         "target": "kprepublic/bm43a"
