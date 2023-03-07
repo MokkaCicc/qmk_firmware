@@ -1,15 +1,19 @@
 #include QMK_KEYBOARD_H
 #include <config.h>
 #include <unicode.c>
-#include <leds.c>
 
-enum layer_names {
+enum layers {
 	_COLEMAK,
 	_QWERTY,
 	_NUMBERS,
 	_SYMBOLS,
 	_NAVIGATION,
 	_CONFIG
+};
+
+enum keycodes {
+	LED_ON = SAFE_RANGE,
+	LED_OFF
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -107,7 +111,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	* ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
 	* │    │    │    │QWER│COLE│    |    │MAIL│APP │BRIU│LEON│    |
 	* ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
-	* │    │    │MAC │LNX │WINC│    │    │WSCH│PSCR|SLEP│    │    │
+	* │    │    │MAC │LNX │WINC│    │    │WSCH│PSCR|SLEP│BOOT│    │
 	* ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
 	* |    │    │    │    │WIN │    │    │CALC│INS │BRID│LEOF│    │
 	* ├────┼────┼────┼────┼────┼────┴────┼────┼────┼────┼────┼────┤
@@ -116,13 +120,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	*/
 	[_CONFIG] = LAYOUT_planck_mit(
 		_______, _______, _______,  QWERTY, COLEMAK, _______, _______, KC_MAIL, KC_APP,  KC_BRIU, LED_ON,  _______,
-		_______, _______, UC_MAC,  UC_LINX, UC_WINC, _______, _______, KC_WHOM, KC_PSCR, KC_SLEP, _______, _______,
+		_______, _______, UC_MAC,  UC_LINX, UC_WINC, _______, _______, KC_WHOM, KC_PSCR, KC_SLEP, QK_BOOT, _______,
 		_______, _______, _______, _______, UC_WIN,  _______, _______, KC_CALC, KC_INS,  KC_BRID, LED_OFF, _______,
 		_______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______
 	)
 };
 
 // EEPROM led config
+typedef union {
+	uint32_t raw;
+	struct {
+		bool is_led_on :1;
+	};
+} led_config_t;
 led_config_t led_config;
 
 // EEPROM is reset
