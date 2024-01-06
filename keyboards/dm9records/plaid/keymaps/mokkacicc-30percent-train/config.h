@@ -1,6 +1,8 @@
 #pragma once
 
 // custom keys
+#define _DQUOT LSFT(KC_QUOT)
+
 #define _CUT LCTL(KC_X)
 #define _COPY LCTL(KC_C)
 #define _PSTE LCTL(KC_V)
